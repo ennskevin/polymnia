@@ -7,13 +7,13 @@ public abstract class TuningCalculator {
 
     public double ratio(int semitones) {
         double ratio = 1.0;
-        List<Integer> path = this.pathToInterval();
+        List<Interval> path = this.pathToInterval();
 
-        // for every member of the path, multiply ratio by
-        // that intervals ratio field
-
-        return -1.0;
+        for (Interval member : path) {
+            ratio *= member.getRatio();
+        }
+        return ratio;
     }
 
-    public abstract List<Integer> pathToInterval();
+    public abstract List<Interval> pathToInterval();
 }
