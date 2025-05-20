@@ -1,5 +1,9 @@
 package com.ennsko.tuning;
 
-public class Harmony {
+import java.util.ArrayList;
+
+// a collection of ints who's range is <= 32
+// the ints represent semitones from the reference, can be neg or pos
+public class Harmony extends ArrayList<Integer> {
     
 }

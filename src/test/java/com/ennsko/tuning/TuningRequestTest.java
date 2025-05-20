@@ -1,5 +1,5 @@
 package com.ennsko.tuning;
 
-public class TuningSystemTest {
+public class TuningRequestTest {
     
 }

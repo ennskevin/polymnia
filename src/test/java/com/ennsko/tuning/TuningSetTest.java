@@ -1,5 +1,5 @@
 package com.ennsko.tuning;
 
-public class Calculator {
+public class TuningSetTest {
     
 }
