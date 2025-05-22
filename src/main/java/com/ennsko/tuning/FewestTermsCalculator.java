@@ -18,7 +18,9 @@ public class FewestTermsCalculator extends TuningCalculator{
 
     @Override
     public TuningPath path(int target) {
-        target = target % 12;
+        if (target > 16) {
+            target = target % 12;
+        }
 
         Queue<TuningPath> queue = new LinkedList<>();
         Set<Integer> visitedSums = new HashSet<>();

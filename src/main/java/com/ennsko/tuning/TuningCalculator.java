@@ -9,13 +9,22 @@ public abstract class TuningCalculator {
         this.tuningSet = tuningSet;
     }
 
-    public double ratio(int semitones) {
+    public double ratio(int target) {
         double ratio = 1.0;
-        List<Interval> path = this.path(semitones);
+        TuningPath path = this.path(target);
 
         for (Interval member : path) {
             ratio *= member.getRatio();
         }
+
+        // find the difference between sum of path and the target
+        // for every change in 12, the ratio gets multiplied
+        // by a power of 2
+
+        int octaveDifference = target - path.sum();
+        octaveDifference /= 12;
+
+        ratio *= Math.pow(2, octaveDifference);
         return ratio;
     }
 
