@@ -4,6 +4,10 @@ public class Interval {
     private int semitones;
     private double ratio;
 
+    public Interval(Interval interval) {
+        this(interval.getSemitones(), interval.getRatio());
+    }
+
     public Interval(int semitones) {
         this.semitones = semitones;
     }
@@ -19,5 +23,9 @@ public class Interval {
 
     public int getSemitones() {
         return semitones;
+    }
+
+    public Interval flip() {
+        return new Interval(this.getSemitones() * -1, this.getRatio() * -1);
     }
 }
