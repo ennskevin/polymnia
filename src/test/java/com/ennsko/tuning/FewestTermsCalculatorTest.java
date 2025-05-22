@@ -115,5 +115,75 @@ public class FewestTermsCalculatorTest {
         TuningPath actual = calc.path(target);
         assertNotEquals(target, actual.sum());
     }
+    
+    @Test
+    @DisplayName("ennskevin: ratio needs no octave shifting")
+    public void testRatioNoOctaveShift() {
+        int target = 10;
 
+        TuningSet set = new TuningSet();
+        set.add(new Interval(5, 4.0/3.0));
+
+        double expected = (4.0/3.0) * (4.0/3.0);
+
+        TuningCalculator calc = new FewestTermsCalculator(set);
+
+        double actual = calc.ratio(target);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    @DisplayName("ennskevin: ratio needs 2 octave shift down")
+    public void testRatioOctaveShiftDown() {
+        int target = 11;
+
+        TuningSet set = new TuningSet();
+        set.add(new Interval(7, 3.0/2.0));
+        double perfectFifth = 3.0/2.0;
+
+        double expected = Math.pow(perfectFifth, 5) * Math.pow(2, -2);
+
+        TuningCalculator calc = new FewestTermsCalculator(set);
+
+        double actual = calc.ratio(target);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    @DisplayName("ennskevin: ratio needs 1 octave shift up")
+    public void testRatioOctaveShiftUp() {
+        int target = 26;
+
+        TuningSet set = new TuningSet();
+        set.add(new Interval(7, 3.0/2.0));
+        double perfectFifth = 3.0/2.0;
+
+        double expected = Math.pow(perfectFifth, 2) * Math.pow(2, 1);
+
+        TuningCalculator calc = new FewestTermsCalculator(set);
+
+        double actual = calc.ratio(target);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    @DisplayName("ennskevin: ratio path has negative intervals")
+    public void testRatioNegativeIntervalsInPath() {
+        // set = 3, 5
+        // target = 2
+        // expected path = [5, -3]
+        int target = 2;
+
+        TuningSet set = new TuningSet();
+        set.add(new Interval(3, 6.0/5.0));
+        set.add(new Interval(5, 4.0/3.0));
+
+        
+
+        TuningCalculator calc = new FewestTermsCalculator(set);
+
+        double expected = (4.0/3.0) * (1.0 / (6.0/5.0));
+        double actual = calc.ratio(target);
+        assertEquals(expected, actual);
+    }
 }

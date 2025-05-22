@@ -26,6 +26,6 @@ public class Interval {
     }
 
     public Interval flip() {
-        return new Interval(this.getSemitones() * -1, this.getRatio() * -1);
+        return new Interval(this.getSemitones() * -1, 1.0 / this.getRatio());
     }
 }
