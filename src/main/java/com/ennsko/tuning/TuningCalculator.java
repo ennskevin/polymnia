@@ -10,6 +10,7 @@ public abstract class TuningCalculator {
     }
 
     public double ratio(int target) {
+        if (target == 0) return 1.0; // same note as itself
         double ratio = 1.0;
         TuningPath path = this.path(target);
 

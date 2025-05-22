@@ -17,15 +17,20 @@ public class Interval {
         this.ratio = ratio;
     }
 
+    
+    public Interval flip() {
+        return new Interval(this.getSemitones() * -1, 1.0 / this.getRatio());
+    }
+    
+    public double getCents() {
+        return 1200 * (Math.log(this.ratio) / Math.log(2));
+    }
+
     public double getRatio() {
         return ratio;
     }
 
     public int getSemitones() {
         return semitones;
-    }
-
-    public Interval flip() {
-        return new Interval(this.getSemitones() * -1, 1.0 / this.getRatio());
     }
 }
