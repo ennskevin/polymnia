@@ -18,10 +18,6 @@ public class FewestTermsCalculator extends TuningCalculator{
 
     @Override
     public TuningPath path(int target) {
-        if (target > 16) {
-            target = target % 12;
-        }
-
         Queue<TuningPath> queue = new LinkedList<>();
         Set<Integer> visitedSums = new HashSet<>();
 
@@ -31,7 +27,7 @@ public class FewestTermsCalculator extends TuningCalculator{
             TuningPath current = queue.poll();
             int currSum = current.sum();
 
-            if (currSum % 12 == target) {
+            if (currSum % 12 == target % 12) {
                 return current;
             }
 
@@ -42,7 +38,6 @@ public class FewestTermsCalculator extends TuningCalculator{
 
             for (Interval interval : this.tuningSet) {
                 // make new path for adding this interval
-                int addSum = currSum + interval.getSemitones();
                 TuningPath addPath = new TuningPath(current);
                 addPath.add(new Interval(interval));
                 queue.add(addPath);
@@ -52,7 +47,7 @@ public class FewestTermsCalculator extends TuningCalculator{
                 int subSum = currSum - interval.getSemitones();
                 if (subSum > 0) {
                     TuningPath subPath = new TuningPath(current);
-                    subPath.add(new Interval(interval.flip()));
+                    subPath.add(new Interval(interval.flip())); // interval flipped so ratio is <
                     queue.add(subPath);
                 }
             }
