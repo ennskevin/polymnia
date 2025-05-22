@@ -1,16 +1,16 @@
 package com.ennsko.tuning;
 
 public class TuningRequest {
-    Harmony harmony;
+    Harmony harmonyInput;
     TuningSet tuningSet;
     int referencePos;
     String tuningType;
     String calcType;
     TuningBehavior tuningBehavior;
 
-    Ratios ratios;
+    Harmony harmonyOutput;
 
     public void performTuning() {
-        this.ratios = tuningBehavior.tune(tuningSet, harmony, referencePos, calcType);
+        this.harmonyOutput = tuningBehavior.tune(tuningSet, harmonyInput, referencePos, calcType);
     }
 }
