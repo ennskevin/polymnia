@@ -14,8 +14,7 @@ public class TuningService {
             request.tuningSet(),
             request.referencePos(),
             request.tuningType(),
-            request.calcType(),
-            request.tuningBehavior()
+            request.calcType()
         );
     }
 

@@ -9,6 +9,5 @@ public record TuningResponse (
     @NotNull TuningSet tuningSet,
     int referencePos,
     String tuningType,
-    String calcType,
-    TuningBehavior tuningBehavior
+    String calcType
 ) {}
