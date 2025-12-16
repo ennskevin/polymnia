@@ -5,6 +5,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import com.ennsko.service.tuning.Harmony;
+import com.ennsko.service.tuning.Interval;
+import com.ennsko.service.tuning.TuningBehavior;
+import com.ennsko.service.tuning.TuningBehaviorFactory;
+import com.ennsko.service.tuning.TuningSet;
+
 public class TuneFromReferenceTest {
     @Test
     @DisplayName("ennskevin: test a major triad root position")

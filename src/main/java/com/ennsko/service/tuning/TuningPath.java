@@ -1,4 +1,4 @@
-package com.ennsko.tuning;
+package com.ennsko.service.tuning;
 
 import java.util.ArrayList;
 

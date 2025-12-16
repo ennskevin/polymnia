@@ -1,4 +1,4 @@
-package com.ennsko.util;
+package com.ennsko.service.tuning;
 
 public class IntervalConverter {
     

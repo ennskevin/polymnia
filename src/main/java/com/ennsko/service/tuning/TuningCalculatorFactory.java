@@ -1,4 +1,4 @@
-package com.ennsko.tuning;
+package com.ennsko.service.tuning;
 
 public class TuningCalculatorFactory {
     public TuningCalculator get(String calcType, TuningSet set) {
