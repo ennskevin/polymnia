@@ -22,6 +22,6 @@ public class TuningController {
 
     @PostMapping
     public TuningResponse run(@RequestBody TuningRequest request) {
-        return null;
+        return tuningService.calculate(request);
     }
 }
