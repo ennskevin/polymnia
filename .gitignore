@@ -38,3 +38,6 @@ Thumbs.db
 # Test coverage
 coverage/
 *.exec
+
+# Maven builds
+target/

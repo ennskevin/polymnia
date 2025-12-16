@@ -6,6 +6,12 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import com.ennsko.service.tuning.FewestTermsCalculator;
+import com.ennsko.service.tuning.Interval;
+import com.ennsko.service.tuning.TuningCalculator;
+import com.ennsko.service.tuning.TuningPath;
+import com.ennsko.service.tuning.TuningSet;
+
 public class FewestTermsCalculatorTest {
 
     @Test
