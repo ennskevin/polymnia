@@ -10,7 +10,16 @@ public class TuningService {
     
     public TuningResponse calculate(TuningRequest request) {
         TuningBehavior tuningBehavior = new TuningBehaviorFactory().get(request.tuningType());
-        Harmony harmony = tuningBehavior.tune(request.tuningSet(), request.harmony(), request.referencePos(), request.calcType());
+
+        request.tuningSet().validate();
+
+        Harmony harmony = tuningBehavior.tune(
+            request.tuningSet(),
+            request.harmony(),
+            request.referencePos(),
+            request.calcType()
+        );
+        
         return new TuningResponse(
             harmony,
             request.tuningSet(),
