@@ -9,8 +9,10 @@ import org.springframework.stereotype.Service;
 public class TuningService {
     
     public TuningResponse calculate(TuningRequest request) {
+        TuningBehavior tuningBehavior = new TuningBehaviorFactory().get(request.tuningType());
+        Harmony harmony = tuningBehavior.tune(request.tuningSet(), request.harmony(), request.referencePos(), request.calcType());
         return new TuningResponse(
-            request.harmony(),
+            harmony,
             request.tuningSet(),
             request.referencePos(),
             request.tuningType(),

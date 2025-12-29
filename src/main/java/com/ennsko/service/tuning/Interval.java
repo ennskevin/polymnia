@@ -4,6 +4,8 @@ public class Interval {
     private int semitones;
     private double ratio;
 
+    public Interval() {}
+
     public Interval(Interval interval) {
         this(interval.getSemitones(), interval.getRatio());
     }
