@@ -16,7 +16,6 @@ public class TuningService {
         Harmony harmony = tuningBehavior.tune(
             request.tuningSet(),
             request.harmony(),
-            request.referencePos(),
             request.calcType()
         );
         harmony.sortIntervals();
@@ -24,7 +23,6 @@ public class TuningService {
         return new TuningResponse(
             harmony,
             request.tuningSet(),
-            request.referencePos(),
             request.tuningType(),
             request.calcType()
         );

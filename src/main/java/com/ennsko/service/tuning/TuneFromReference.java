@@ -3,10 +3,10 @@ package com.ennsko.service.tuning;
 public class TuneFromReference implements TuningBehavior {
 
     @Override
-    public Harmony tune(TuningSet tuningSet, Harmony harmony, int referencePos, String calcType) {
+    public Harmony tune(TuningSet tuningSet, Harmony harmony, String calcType) {
         TuningCalculator calc = new TuningCalculatorFactory().get(calcType, tuningSet);
         Harmony tunedHarmony = new Harmony();
-        // if interval has negative semitones, we flip the ratio after soliving
+        // if interval has negative semitones, we flip the ratio after solving
         // the absolute value semitones
         for (Interval interval : harmony) {
             int target = Math.abs(interval.getSemitones());
