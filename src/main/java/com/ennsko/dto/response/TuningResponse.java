@@ -7,7 +7,6 @@ import jakarta.validation.constraints.*;
 public record TuningResponse (
     @NotNull Harmony harmony,
     @NotNull TuningSet tuningSet,
-    int referencePos,
     String tuningType,
     String calcType
 ) {}
