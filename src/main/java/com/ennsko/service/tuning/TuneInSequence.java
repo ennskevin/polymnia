@@ -1,5 +1,7 @@
 package com.ennsko.service.tuning;
 
+import java.util.Collections;
+
 public class TuneInSequence implements TuningBehavior{
 
     @Override
@@ -12,7 +14,17 @@ public class TuneInSequence implements TuningBehavior{
         // split into negative set of intervals
         // make sure to sum the cents as you go outward, so if you have 0, 4, 7
         // you would tune(4) and then tune(7-4) and then add that to the tune(4) to get tune(7)
-
+        Harmony positives = new Harmony();
+        Harmony negatives = new Harmony();
+        for (Interval interval : harmony) {
+            if (interval.getSemitones() > 0) positives.add(interval);
+            if (interval.getSemitones() < 0) negatives.add(interval);
+        }
+        positives.sortIntervals();
+        negatives.sortIntervals();
+        Collections.reverse(negatives);
+        
+        
         return null;
 
     }
