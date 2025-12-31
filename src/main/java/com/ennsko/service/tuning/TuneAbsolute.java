@@ -1,6 +1,6 @@
 package com.ennsko.service.tuning;
 
-public class TuneFromReference implements TuningBehavior {
+public class TuneAbsolute implements TuningBehavior {
 
     @Override
     public Harmony tune(TuningSet tuningSet, Harmony harmony, String calcType) {

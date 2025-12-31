@@ -206,7 +206,7 @@ public class FewestTermsCalculatorTest {
 
         TuningCalculator calc = new FewestTermsCalculator(set);
 
-        double expected = -1 * ((4.0/3.0) * (1.0 / (6.0/5.0)));
+        double expected = 1.0 / ((4.0/3.0) * (1.0 / (6.0/5.0)));
         double actual = calc.ratio(target);
         assertEquals(expected, actual);
     }

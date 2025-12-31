@@ -11,7 +11,7 @@ import com.ennsko.service.tuning.TuningBehavior;
 import com.ennsko.service.tuning.TuningBehaviorFactory;
 import com.ennsko.service.tuning.TuningSet;
 
-public class TuneFromReferenceTest {
+public class TuneAbsoluteTest {
     @Test
     @DisplayName("ennskevin: test a major triad root position")
     public void testTuneMajorTriad() {

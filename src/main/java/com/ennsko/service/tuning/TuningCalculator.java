@@ -32,7 +32,7 @@ public abstract class TuningCalculator {
 
         ratio *= Math.pow(2, octaveDifference);
 
-        if (isNegative) ratio *= -1;
+        if (isNegative) ratio = 1.0 / ratio;
         return ratio;
     }
 

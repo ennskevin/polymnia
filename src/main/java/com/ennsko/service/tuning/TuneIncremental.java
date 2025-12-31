@@ -2,7 +2,7 @@ package com.ennsko.service.tuning;
 
 import java.util.Collections;
 
-public class TuneInSequence implements TuningBehavior{
+public class TuneIncremental implements TuningBehavior{
 
     @Override
     public Harmony tune(TuningSet tuningSet, Harmony harmony, String calcType) {
@@ -24,8 +24,17 @@ public class TuneInSequence implements TuningBehavior{
         negatives.sortIntervals();
         Collections.reverse(negatives);
         
-        
-        return null;
+        // calculate the positive intervals
+        double combinedRatio = 1.0;
+        int semitoneSum = 0;
+        for (Interval interval : positives) {
+            int target = interval.getSemitones() - semitoneSum;
+            combinedRatio *= calc.ratio(target);
+            semitoneSum += target;
+            tunedHarmony.add(new Interval(interval.getSemitones(), combinedRatio));
+        }
+
+        return tunedHarmony;
 
     }
     
