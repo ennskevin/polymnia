@@ -11,11 +11,6 @@ public abstract class TuningCalculator {
 
     public double ratio(int target) {
         if (target == 0) return 1.0; // same note as itself
-        boolean isNegative = false;
-        if (target < 0) {
-            isNegative = true;
-            target *= -1;
-        }
         double ratio = 1.0;
         TuningPath path = this.path(target);
 
@@ -29,10 +24,7 @@ public abstract class TuningCalculator {
 
         int octaveDifference = target - path.sum();
         octaveDifference /= 12;
-
         ratio *= Math.pow(2, octaveDifference);
-
-        if (isNegative) ratio = 1.0 / ratio;
         return ratio;
     }
 
