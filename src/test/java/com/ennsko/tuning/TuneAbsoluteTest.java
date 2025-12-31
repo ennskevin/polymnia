@@ -11,7 +11,7 @@ import com.ennsko.service.tuning.TuningBehavior;
 import com.ennsko.service.tuning.TuningBehaviorFactory;
 import com.ennsko.service.tuning.TuningSet;
 
-public class TuneFromReferenceTest {
+public class TuneAbsoluteTest {
     @Test
     @DisplayName("ennskevin: test a major triad root position")
     public void testTuneMajorTriad() {
@@ -26,7 +26,7 @@ public class TuneFromReferenceTest {
         set.add(new Interval(7, 3.0/2.0));
 
         TuningBehavior tuningBehavior = new TuningBehaviorFactory().get("");
-        Harmony harmonyOutput = tuningBehavior.tune(set, harmonyInput, 0, "");
+        Harmony harmonyOutput = tuningBehavior.tune(set, harmonyInput, "");
         
         assertEquals(harmonyInput.size(), harmonyOutput.size());
         assertEquals(0, harmonyOutput.get(0).getSemitones());
@@ -47,7 +47,7 @@ public class TuneFromReferenceTest {
         set.add(new Interval(3, 6.0/5.0));
 
         TuningBehavior tuningBehavior = new TuningBehaviorFactory().get("");
-        Harmony harmonyOutput = tuningBehavior.tune(set, harmonyInput, 0, "");
+        Harmony harmonyOutput = tuningBehavior.tune(set, harmonyInput, "");
         
         assertEquals(harmonyInput.size(), harmonyOutput.size());
         assertEquals(-4, harmonyOutput.get(0).getSemitones());

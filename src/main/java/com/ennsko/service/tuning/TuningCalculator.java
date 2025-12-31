@@ -24,7 +24,6 @@ public abstract class TuningCalculator {
 
         int octaveDifference = target - path.sum();
         octaveDifference /= 12;
-
         ratio *= Math.pow(2, octaveDifference);
         return ratio;
     }

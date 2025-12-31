@@ -3,6 +3,7 @@ package com.ennsko.tuning;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -184,11 +185,28 @@ public class FewestTermsCalculatorTest {
         set.add(new Interval(3, 6.0/5.0));
         set.add(new Interval(5, 4.0/3.0));
 
-        
-
         TuningCalculator calc = new FewestTermsCalculator(set);
 
         double expected = (4.0/3.0) * (1.0 / (6.0/5.0));
+        double actual = calc.ratio(target);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    @DisplayName("ennskevin: target is negative")
+    public void testRatioNegativeTarget() {
+        // set = 3, 5
+        // target = -2
+        // expected path = [5, -3]
+        int target = -2;
+
+        TuningSet set = new TuningSet();
+        set.add(new Interval(3, 6.0/5.0));
+        set.add(new Interval(5, 4.0/3.0));
+
+        TuningCalculator calc = new FewestTermsCalculator(set);
+
+        double expected = 1.0 / ((4.0/3.0) * (1.0 / (6.0/5.0)));
         double actual = calc.ratio(target);
         assertEquals(expected, actual);
     }
