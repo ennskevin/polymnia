@@ -19,13 +19,19 @@ public class TuningService {
             request.calcType()
         );
         harmony.sortIntervals();
+
+        Frequencies frequencies = request.frequencies();
+        if (request.anchor() != null) {
+            frequencies = harmony.calculateFrequencies(request.anchor());
+        }
         
         return new TuningResponse(
             harmony,
             request.tuningSet(),
             request.tuningType(),
-            request.calcType()
+            request.calcType(),
+            request.anchor(),
+            frequencies
         );
     }
-
 }

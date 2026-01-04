@@ -8,5 +8,7 @@ public record TuningRequest (
     @NotNull Harmony harmony,
     @NotNull TuningSet tuningSet,
     String tuningType,
-    String calcType
+    String calcType,
+    Double anchor,
+    Frequencies frequencies
 ) {}

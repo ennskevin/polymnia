@@ -11,19 +11,13 @@ public class Harmony extends ArrayList<Interval> {
         this.sort(Comparator.comparingInt(Interval::getSemitones));
     }
     
-    public void displayCents() {
-
-    }
-
-    public void displayRatios() {
-
-    }
-
-    public void displaySemitones() {
-
-    }
-
-    public void displayFrequencies(double referenceFreq) {
-
+    public Frequencies calculateFrequencies(double anchor) {
+        sortIntervals();
+        Frequencies frequencies = new Frequencies();
+        for (Interval interval : this) {
+            double frequency = anchor * interval.getRatio();
+            frequencies.add(frequency);
+        }
+        return frequencies;
     }
 }
