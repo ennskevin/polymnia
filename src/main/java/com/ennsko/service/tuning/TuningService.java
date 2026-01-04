@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class TuningService {
     
-    public TuningResponse calculateRatios(TuningRequest request) {
+    public TuningResponse calculate(TuningRequest request) {
         TuningBehavior tuningBehavior = new TuningBehaviorFactory().get(request.tuningType());
 
         request.tuningSet().validate();
@@ -19,22 +19,12 @@ public class TuningService {
             request.calcType()
         );
         harmony.sortIntervals();
-        
-        return new TuningResponse(
-            harmony,
-            request.tuningSet(),
-            request.tuningType(),
-            request.calcType(),
-            request.anchor(),
-            request.frequencies()
-        );
-    }
 
-    public TuningResponse calculateFrequencies(TuningRequest request) {
-        Harmony harmony = request.harmony();
+        Frequencies frequencies = request.frequencies();
+        if (request.anchor() != null) {
+            frequencies = harmony.calculateFrequencies(request.anchor());
+        }
         
-        Frequencies frequencies = harmony.calculateFrequencies(request.anchor());
-
         return new TuningResponse(
             harmony,
             request.tuningSet(),
@@ -42,7 +32,6 @@ public class TuningService {
             request.calcType(),
             request.anchor(),
             frequencies
-        );        
+        );
     }
-
 }

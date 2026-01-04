@@ -9,6 +9,6 @@ public record TuningRequest (
     @NotNull TuningSet tuningSet,
     String tuningType,
     String calcType,
-    double anchor,
+    Double anchor,
     Frequencies frequencies
 ) {}
