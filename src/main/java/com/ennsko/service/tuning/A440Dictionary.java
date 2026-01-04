@@ -9,7 +9,7 @@ public final class A440Dictionary {
     public static final Map<String, Double> NOTE_TO_FREQUENCY;
 
     static {
-        Map<String, Double> m = new HashMap();
+        Map<String, Double> m = new HashMap<>();
 
         m.put("C0", 16.35);
         m.put("C#0", 17.32); m.put("Db0", 17.32);
