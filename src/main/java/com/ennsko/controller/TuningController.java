@@ -21,7 +21,12 @@ public class TuningController {
     }
 
     @PostMapping
-    public TuningResponse run(@RequestBody TuningRequest request) {
-        return tuningService.calculate(request);
+    public TuningResponse runRatios(@RequestBody TuningRequest request) {
+        return tuningService.calculateRatios(request);
+    }
+
+    @PostMapping("/frequencies")
+    public TuningResponse runFrequencies(@RequestBody TuningRequest request) {
+        return tuningService.calculateFrequencies(request);
     }
 }
