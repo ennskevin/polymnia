@@ -10,12 +10,9 @@ public class TuneAbsolute implements TuningBehavior {
         // if interval has negative semitones, we get the Math.abs, 
         // then flip the ratio after solving
         for (Interval interval : harmony) {
-            int target = Math.abs(interval.getSemitones());
+            int target = interval.getSemitones();
             double tunedRatio = calc.ratio(target);
             Interval tunedInterval = new Interval(target, tunedRatio);
-            if (interval.getSemitones() < 0) {
-                tunedInterval = tunedInterval.flip();
-            }
             tunedHarmony.add(tunedInterval);
         }
         return tunedHarmony;

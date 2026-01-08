@@ -195,9 +195,6 @@ public class FewestTermsCalculatorTest {
     @Test
     @DisplayName("ennskevin: target is negative")
     public void testRatioNegativeTarget() {
-        // set = 3, 5
-        // target = -2
-        // expected path = [5, -3]
         int target = -2;
 
         TuningSet set = new TuningSet();
