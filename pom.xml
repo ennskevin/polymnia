@@ -5,7 +5,7 @@
 
   <groupId>com.ennsko.app</groupId>
   <artifactId>polymnia</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <version>1.0</version>
 
   <name>polymnia</name>
   <!-- FIXME change it to the project's website -->
@@ -105,5 +105,11 @@
         </plugin>
       </plugins>
     </pluginManagement>
+    <plugins>
+        <plugin>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-maven-plugin</artifactId>
+        </plugin>
+    </plugins>
   </build>
 </project>
