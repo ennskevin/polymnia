@@ -13,7 +13,8 @@ import com.ennsko.service.tuning.TuningService;
 
 @CrossOrigin(origins = {
     "http://localhost:5173",
-    "https://*.ennskevin.com"
+    "https://ennskevin.com",
+    "https://www.ennskevin.com"
 })
 @RestController
 @RequestMapping("/api/tuning")
