@@ -17,7 +17,7 @@ import com.ennsko.service.tuning.TuningService;
     "https://www.ennskevin.com"
 })
 @RestController
-@RequestMapping("polymnia/api/tuning")
+@RequestMapping("/polymnia/api/tuning")
 public class TuningController {
     
     private final TuningService tuningService;
