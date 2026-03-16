@@ -11,7 +11,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.ennsko.service.tuning.TuningService;
 
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = {
+    "http://localhost:5173",
+    "https://*.ennskevin.com"
+})
 @RestController
 @RequestMapping("/api/tuning")
 public class TuningController {
