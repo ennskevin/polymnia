@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ennsko.service.tuning.TuningService;
 
 @CrossOrigin(origins = {
-    "http://localhost:5173",
+    "http://localhost:5173/polymnia",
     "https://ennskevin.com",
     "https://www.ennskevin.com"
 })
