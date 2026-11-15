@@ -2,3 +2,8 @@ spring:
   jackson:
     deserialization:
       fail-on-unknown-properties: true
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/polymnia}
+    username: ${DB_USERNAME:polymnia}
+    password: ${DB_PASSWORD:polymnia_dev}
+    driver-class-name: org.postgresql.Driver
