@@ -11,7 +11,7 @@ services:
     volumes:
       - polymnia_data:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD_SHELL", "pg_isready -U ${DB_USERNAME:-polymnia} -d polymnia"]
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USERNAME:-polymnia} -d polymnia"]
       interval: 5s
       timeout: 5s
       retries: 5
