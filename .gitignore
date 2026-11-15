@@ -41,3 +41,6 @@ coverage/
 
 # Maven builds
 target/
+
+# environment
+.env
