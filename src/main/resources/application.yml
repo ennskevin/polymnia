@@ -7,3 +7,10 @@ spring:
     username: ${DB_USERNAME:polymnia}
     password: ${DB_PASSWORD:polymnia_dev}
     driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
